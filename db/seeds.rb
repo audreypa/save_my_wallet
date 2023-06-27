@@ -6,10 +6,18 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Expense.create!(name: "Rent", amount: 1000, date: "2021-09-01")
 
 Building.destroy_all
+Expense.destroy_all
+User.destroy_all
 
+#create expenses seed
+Expense.create!(title: 'Food', amount: 100, category: 'food')
+Expense.create!(title: 'Clothes', amount: 200, category: 'shopping')
+Expense.create!(title: 'Hospital', amount: 300, category: 'health')
+
+
+# Create Buildings seed
 buildings = [{ name: 'Rastaurant', category: 'food', level: 2 },
              { name: 'Clothes', category: 'shopping', level: 3 },
              { name: 'Hospital', category: 'health', level: 1 }]
@@ -21,4 +29,3 @@ buildings.each do |building|
     level: building[:level]
   )
 end
-
