@@ -9,6 +9,7 @@ class ChallengesController < ApplicationController
   def show; end
 
   private
+
   def set_challenge
     @challenge = Challenge.find(params[:id])
   end
