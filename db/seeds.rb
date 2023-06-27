@@ -9,23 +9,24 @@
 
 Building.destroy_all
 Expense.destroy_all
-User.destroy_all
+# User.destroy_all
 
-#create expenses seed
-Expense.create!(title: 'Food', amount: 100, category: 'food')
-Expense.create!(title: 'Clothes', amount: 200, category: 'shopping')
-Expense.create!(title: 'Hospital', amount: 300, category: 'health')
 
 
 # Create Buildings seed
-buildings = [{ name: 'Rastaurant', category: 'food', level: 2 },
-             { name: 'Clothes', category: 'shopping', level: 3 },
-             { name: 'Hospital', category: 'health', level: 1 }]
+buildings = [{ name: 'Restaurant', category: 'food', level: 2 },
+  { name: 'Clothes', category: 'shopping', level: 3 },
+  { name: 'Hospital', category: 'health', level: 1 }]
 
-buildings.each do |building|
-  Building.create!(
-    name: building[:name],
-    category: building[:category],
-    level: building[:level]
-  )
-end
+  buildings.each do |building|
+    Building.create!(
+      name: building[:name],
+      category: building[:category],
+      level: building[:level]
+    )
+  end
+
+#create expenses seed
+Expense.create!(title: 'Food', amount: 100, category: 'food', building_id: Building.find_by(category: 'food').id, user_id: User.first.id)
+Expense.create!(title: 'Clothes', amount: 200, category: 'shopping', building_id: Building.find_by(category: 'shopping').id, user_id: User.first.id)
+Expense.create!(title: 'Hospital', amount: 300, category: 'health', building_id: Building.find_by(category: 'health').id, user_id: User.first.id)
