@@ -1,4 +1,14 @@
+
 # Expense.create!(name: "Rent", amount: 1000, date: "2021-09-01")
+
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
+
 
 Building.destroy_all
 Challenge.destroy_all
@@ -15,6 +25,7 @@ buildings.each do |building|
   )
 end
 
+
 challenges = [{ title: 'No restaurant', description: 'No restaurant for 1 week', badge: 'No restaurant', level: 1 },
               { title: 'No shopping', description: 'No shopping for 2 weeks', badge: 'No shopping', level: 2 },
               { title: 'Supersaver', description: 'No useless dispenses for 3 weeks', badge: 'Savings', level: 3 },
@@ -26,5 +37,14 @@ challenges.each do |challenge|
     description: challenge[:description],
     badge: challenge[:badge],
     level: challenge[:level]
+
+cities = [{ name: "Bikini Bottom", level: 3, user_id: 1 }]
+
+cities.each do |city|
+  City.create!(
+    name: city[:name],
+    level: city[:level],
+    user_id: city[:user_id]
+
   )
 end
